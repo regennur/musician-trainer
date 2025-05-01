@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Музыкальный тренажёр</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Музыкальный тренажёр</h1>
+        
+        <div class="exercise-selector">
+            <button id="key-signatures-btn">Тональность: сколько знаков?</button>
+            <button id="degree-note-btn">Какая ступень?</button>
+            <button id="interval-in-key-btn">Интервал в тональности</button>
+            <button id="interval-chain-btn">Интервальная цепочка</button>
+        </div>
+        
+        <div id="key-signatures-exercise" class="exercise hidden">
+            <h2>Тональность: сколько знаков?</h2>
+            <p>Назовите количество знаков в тональности</p>
+            <div class="question-container">
+                <div id="key-signature-question" class="question"></div>
+                <div id="key-signature-answer" class="answer hidden"></div>
+            </div>
+            <div class="timer-container">
+                <div id="key-signature-timer" class="timer">01:00</div>
+                <div id="key-signature-counter" class="counter">Ответов: 0</div>
+            </div>
+            <button id="key-signature-next" class="next-btn">Дальше</button>
+            <button id="key-signature-start" class="start-btn">Начать</button>
+        </div>
+        
+        <div id="degree-note-exercise" class="exercise hidden">
+            <h2>Какая ступень?</h2>
+            <p>Назовите ноту соответствующей ступени в тональности</p>
+            <div class="question-container">
+                <div id="degree-note-question" class="question"></div>
+                <div id="degree-note-answer" class="answer hidden"></div>
+            </div>
+            <div class="timer-container">
+                <div id="degree-note-timer" class="timer">01:00</div>
+                <div id="degree-note-counter" class="counter">Ответов: 0</div>
+            </div>
+            <button id="degree-note-next" class="next-btn">Дальше</button>
+            <button id="degree-note-start" class="start-btn">Начать</button>
+        </div>
+        
+        <div id="interval-in-key-exercise" class="exercise hidden">
+            <h2>Интервал в тональности</h2>
+            <p>Назовите ноты указанного интервала на данной ступени в тональности</p>
+            <div class="question-container">
+                <div id="interval-in-key-question" class="question"></div>
+                <div id="interval-in-key-answer" class="answer hidden"></div>
+            </div>
+            <div class="timer-container">
+                <div id="interval-in-key-timer" class="timer">01:00</div>
+                <div id="interval-in-key-counter" class="counter">Ответов: 0</div>
+            </div>
+            <button id="interval-in-key-next" class="next-btn">Дальше</button>
+            <button id="interval-in-key-start" class="start-btn">Начать</button>
+        </div>
+        
+        <div id="interval-chain-exercise" class="exercise hidden">
+            <h2>Интервальная цепочка</h2>
+            <p>Постройте интервальную цепочку, начиная с данной ноты</p>
+            <div class="question-container">
+                <div id="interval-chain-question" class="question"></div>
+                <div id="interval-chain-answer" class="answer hidden"></div>
+            </div>
+            <div class="timer-container">
+                <div id="interval-chain-timer" class="timer">01:00</div>
+                <div id="interval-chain-counter" class="counter">Ответов: 0</div>
+            </div>
+            <button id="interval-chain-next" class="next-btn">Дальше</button>
+            <button id="interval-chain-start" class="start-btn">Начать</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
