@@ -200,4 +200,73 @@ document.addEventListener('DOMContentLoaded', function() {
     // Генерация вопроса для "Какая ступень?"
     function generateDegreeNoteQuestion() {
         const randomKey = keys[Math.floor(Math.random() * keys.length)];
-        const randomDegree = degrees[Math.floor(Math.random() * degrees.length
+        const randomDegree = degrees[Math.floor(Math.random() * degrees.length)];
+        const degreeIndex = degrees.indexOf(randomDegree);
+        
+        const questionElement = document.getElementById('degree-note-question');
+        const answerElement = document.getElementById('degree-note-answer');
+        
+        questionElement.textContent = `${randomKey.name}, ${randomDegree} ступень`;
+        
+        // Здесь должна быть логика определения ноты по ступени в тональности
+        // Для простоты будем использовать случайную ноту с случайным альтерацией
+        const randomNote = notes[Math.floor(Math.random() * notes.length)];
+        const randomAlteration = alterations[Math.floor(Math.random() * alterations.length)];
+        answerElement.textContent = `${randomNote}${randomAlteration}`;
+    }
+    
+    // Генерация вопроса для "Интервал в тональности"
+    function generateIntervalInKeyQuestion() {
+        const randomKey = keys[Math.floor(Math.random() * keys.length)];
+        const randomDegree = degrees[Math.floor(Math.random() * degrees.length)];
+        const randomInterval = intervals[Math.floor(Math.random() * intervals.length)];
+        
+        const questionElement = document.getElementById('interval-in-key-question');
+        const answerElement = document.getElementById('interval-in-key-answer');
+        
+        questionElement.textContent = `${randomKey.name}, ${randomInterval} на ${randomDegree} ступени`;
+        
+        // Здесь должна быть логика определения нот интервала в тональности
+        // Для простоты будем использовать случайные ноты
+        const randomNote1 = notes[Math.floor(Math.random() * notes.length)];
+        const randomAlteration1 = alterations[Math.floor(Math.random() * alterations.length)];
+        const randomNote2 = notes[Math.floor(Math.random() * notes.length)];
+        const randomAlteration2 = alterations[Math.floor(Math.random() * alterations.length)];
+        answerElement.textContent = `${randomNote1}${randomAlteration1} ${randomNote2}${randomAlteration2}`;
+    }
+    
+    // Генерация вопроса для "Интервальная цепочка"
+    function generateIntervalChainQuestion() {
+        const randomNote = notes[Math.floor(Math.random() * notes.length)];
+        const randomAlteration = alterations[Math.floor(Math.random() * alterations.length)];
+        const startNote = `${randomNote}${randomAlteration}`;
+        const randomInterval = intervals[Math.floor(Math.random() * intervals.length)];
+        const direction = Math.random() > 0.5 ? 'вверх' : 'вниз';
+        
+        const questionElement = document.getElementById('interval-chain-question');
+        const answerElement = document.getElementById('interval-chain-answer');
+        
+        questionElement.textContent = `Начните с ноты ${startNote}, постройте ${randomInterval} ${direction}`;
+        
+        // Здесь должна быть логика построения цепочки
+        // Для простоты будем использовать случайные ноты
+        const randomNote1 = notes[Math.floor(Math.random() * notes.length)];
+        const randomAlteration1 = alterations[Math.floor(Math.random() * alterations.length)];
+        answerElement.textContent = `Следующий шаг: ${randomNote1}${randomAlteration1}`;
+    }
+    
+    // Функция для склонения слов после числительных
+    function declOfNum(number, titles) {  
+        const cases = [2, 0, 1, 1, 1, 2];  
+        return titles[(number % 100 > 4 && number % 100 < 20) ? 2 : cases[(number % 10 < 5) ? number % 10 : 5]];  
+    }
+    
+    // Показываем ответ при клике на вопрос
+    document.querySelectorAll('.question').forEach(question => {
+        question.addEventListener('click', function() {
+            const exerciseId = this.closest('.exercise').id;
+            const answerElement = document.querySelector(`#${exerciseId} .answer`);
+            answerElement.classList.toggle('hidden');
+        });
+    });
+});
